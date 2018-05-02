@@ -1,0 +1,20 @@
+[
+    {
+      "description": "valid user, invalid password",
+      "username": "admin@venturus.org.br",
+      "password": "admini",
+      "output": "Invalid username and/or password"
+    },
+    {
+      "description": "invalid user, valid password",
+      "username": "venturus",
+      "password": "admin",
+      "output": "Invalid username and/or password"
+    },
+    {
+      "description": "invalid user, invalid password",
+      "username": "Neymar",
+      "password": "ney12345!",
+      "output": "Invalid username and/or password"
+    }
+  ]
