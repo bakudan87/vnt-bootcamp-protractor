@@ -13,7 +13,7 @@ describe('bootcamp-protractor App', () => {
     page.navigateTo();
   });
 
-  it('should display welcome message', () => {
+  xit('should display welcome message', () => {
     expect(element(by.id("welcomeMsg")).isDisplayed()).toBe(true);
   });
 
@@ -23,9 +23,8 @@ describe('bootcamp-protractor App', () => {
     element(by.id('inputPassword')).sendKeys(data.password);
     element(by.id('loginSubmit')).click();
 
-    expect(element(by.id("login-alert-message")).getText()).toBe('Invalid username and/or password');
-    expect(element(by.id("login-alert-message")).isDisplayed()).toBe(true);
-
+    expect(element(by.id("login-alert-message")).getText()).toBe(data.output);
+    
     element(by.id('inputUsername')).clear();
     element(by.id('inputPassword')).clear();
 
@@ -39,7 +38,6 @@ describe('bootcamp-protractor App', () => {
     element(by.id('lastName')).sendKeys(data.lastname);
     element(by.id('username')).sendKeys(data.username);
     element(by.id('password')).sendKeys(data.password);
-    //element(by.id('loginSubmit')).click();
     })
   });
 
