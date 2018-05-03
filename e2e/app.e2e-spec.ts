@@ -1,14 +1,15 @@
 import { AppPage } from './app.po';
+import { browser, by, element } from 'protractor';
 
 describe('bootcamp-protractor App', () => {
   let page: AppPage;
 
   beforeEach(() => {
     page = new AppPage();
+    page.navigateTo();
   });
 
   it('should display welcome message', () => {
-    page.navigateTo();
-    expect(page.getParagraphText()).toEqual('Welcome to app!');
+    expect(element(by.id("welcomeMsg")).isDisplayed()).toBe(true);
   });
 });
