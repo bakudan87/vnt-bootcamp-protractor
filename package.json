@@ -9,7 +9,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "webdriver-update": "webdriver-manager update"
+    "webdriver-update": "webdriver-manager update",
+    "test:login": "protractor protractor.conf.js --suite login"
   },
   "private": true,
   "dependencies": {

@@ -12,7 +12,7 @@
                 <a class="nav-link" routerLink="register">Register</a>
             </li>
             <li class="nav-item" *ngIf="_authService.loggedIn">
-                <a class="nav-link" routerLink="#" (click)="logout()">Logout</a>
+                <a class="nav-link" id="logout" routerLink="#" (click)="logout()">Logout</a>
             </li>
         </ul>
     </div>

@@ -10,10 +10,10 @@
       <label for="inputPassword" class="sr-only">Password</label>
       <input type="password" formControlName="password" id="inputPassword" class="form-control" placeholder="Password">
       
-      <div class="invalid-feedback d-block mb-3" *ngIf="loginError">
+      <div class="invalid-feedback d-block mb-3" id="login-alert-message" *ngIf="loginError">
         Invalid username and/or password
       </div>
-      <button class="btn  btn-primary btn-block" [disabled]="loginForm.invalid" type="button" (click)="login(credentials)">Sign in</button>
+      <button id="buttonSignIn" class="btn  btn-primary btn-block" [disabled]="loginForm.invalid" type="button" (click)="login(credentials)">Sign in</button>
     </div>
   </form>
 </div>
