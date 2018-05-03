@@ -25,7 +25,6 @@ var LoginPage = function () {
         inputPassword.sendKeys(password);
         this.loginSubmit.click();
     }
-
 };
 
 module.exports = new LoginPage();

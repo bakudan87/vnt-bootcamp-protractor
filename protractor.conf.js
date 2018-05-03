@@ -24,6 +24,7 @@ exports.config = {
       project: 'e2e/tsconfig.e2e.json'
     });
     jasmine.getEnv().addReporter(new SpecReporter({ spec: { displayStacktrace: true } }));
+    global.all = require('./utils/all.js')
   },
   suites: {
     login: ['./e2e/login/validate-login-entries.spec.ts']

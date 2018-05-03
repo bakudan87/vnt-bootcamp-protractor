@@ -5,33 +5,26 @@ describe('Login attempts', () => {
 
     var login =  require('./login-page');
     var home = require('../home/home-page')
+    var loginInfo = require('../../testData/loginInfo.json'); 
     
     beforeEach(() => {
       login.getLoginPage();
     });
 
-    it('should successfully login', () => {
-        login.performSucessfullLogin('admin@venturus.org.br','admin')
-        expect(home.linkLogout().isDisplayed())
-        home.linkLogout().click()
-    });
+    all(loginInfo.valid , (data) => {
+        it('should successfully login', () => {
+            login.performSucessfullLogin(data.username,data.password)
+            expect(home.linkLogout().isDisplayed())
+            home.linkLogout().click()
+        })
+    });    
 
-    it('should not login with invalid username', () => {
-        login.verifyInvalidLoginData('admin','admin')
-        expect(element(by.id("login-alert-message")).getText()).toBe('Invalid username and/or password');
-        expect(element(by.id("login-alert-message")).isDisplayed()).toBe(true);
-    });
-
-    it('should not login with invalid password', () => {
-        login.verifyInvalidLoginData('admin@venturus.org.br', 'blablabla')
-        expect(element(by.id("login-alert-message")).getText()).toBe('Invalid username and/or password');
-        expect(element(by.id("login-alert-message")).isDisplayed()).toBe(true);
-    });
-
-    it('should not login with both invalid username and password', () => {
-        login.verifyInvalidLoginData('admin','bla123')
-        expect(element(by.id("login-alert-message")).getText()).toBe('Invalid username and/or password');
-        expect(element(by.id("login-alert-message")).isDisplayed()).toBe(true);
+    all(loginInfo.invalid , (data, iteration) => {
+        it(`iteration #${iteration}: login attempt for ${data.description}`, () => {
+            login.verifyInvalidLoginData(data.username,data.password)
+            expect(element(by.id("login-alert-message")).getText()).toBe(data.output);
+            expect(element(by.id("login-alert-message")).isDisplayed()).toBe(true);
+        })
     });
 
     it ('verify register link', () => {
