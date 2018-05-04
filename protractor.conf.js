@@ -13,6 +13,12 @@ exports.config = {
   },
   directConnect: true,
   baseUrl: 'http://localhost:4200/',
+  params: {
+    login: {
+      username: "admin@venturus.org.br",
+      password: "admin"      
+    }
+  },
   framework: 'jasmine',
   jasmineNodeOpts: {
     showColors: true,
