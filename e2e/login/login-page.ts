@@ -20,12 +20,6 @@ var LoginPage = function () {
         this.loginSubmit.click();
     }
 
-    /*this.verifyInvalidLoginData = function(user: string, password: string) {
-        inputUser.sendKeys(user);
-        inputPassword.sendKeys(password);
-        this.loginSubmit.click();
-    }*/
-
 };
 
 module.exports = new LoginPage();
