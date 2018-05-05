@@ -14,17 +14,17 @@ var LoginPage = function () {
         browser.get('http://localhost:4200/#/login');
     }
 
-    this.performSucessfullLogin = function(user: string, password: string) {
+    this.performLogin = function(user: string, password: string) {
         inputUser.sendKeys(user);
         inputPassword.sendKeys(password);
         this.loginSubmit.click();
     }
 
-    this.verifyInvalidLoginData = function(user: string, password: string) {
+    /*this.verifyInvalidLoginData = function(user: string, password: string) {
         inputUser.sendKeys(user);
         inputPassword.sendKeys(password);
         this.loginSubmit.click();
-    }
+    }*/
 
 };
 
